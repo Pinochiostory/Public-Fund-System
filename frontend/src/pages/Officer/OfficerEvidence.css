@@ -1,0 +1,511 @@
+* {
+  box-sizing: border-box;
+}
+
+.officer-evidence-layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  background: #f5f5f5;
+  color: #111111;
+}
+
+.officer-evidence-sidebar {
+  min-height: 100vh;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  padding: 28px 20px;
+  background: #0c0c0c;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.officer-evidence-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 42px;
+}
+
+.officer-evidence-brand-mark {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #444444;
+  font-weight: 700;
+}
+
+.officer-evidence-brand h2 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.officer-evidence-brand p {
+  margin: 3px 0 0;
+  color: #8d8d8d;
+  font-size: 12px;
+}
+
+.officer-evidence-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.officer-evidence-nav button {
+  width: 100%;
+  padding: 12px 14px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #aaaaaa;
+  text-align: left;
+  cursor: pointer;
+}
+
+.officer-evidence-nav button:hover,
+.officer-evidence-nav button.active {
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+.officer-evidence-user {
+  padding-top: 20px;
+  border-top: 1px solid #292929;
+}
+
+.officer-evidence-user div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+.officer-evidence-user strong {
+  font-size: 13px;
+}
+
+.officer-evidence-user span {
+  margin-top: 4px;
+  color: #8d8d8d;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.officer-evidence-user button {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid #333333;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.officer-evidence-main {
+  width: 100%;
+  max-width: 1500px;
+  padding: 42px;
+}
+
+.officer-evidence-header {
+  margin-bottom: 28px;
+}
+
+.officer-evidence-header p {
+  margin: 0 0 8px;
+  color: #777777;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+}
+
+.officer-evidence-header h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+.officer-evidence-header span {
+  display: block;
+  max-width: 700px;
+  margin-top: 10px;
+  color: #666666;
+  line-height: 1.6;
+}
+
+.officer-evidence-message {
+  margin-bottom: 20px;
+  padding: 14px 16px;
+  border: 1px solid;
+}
+
+.officer-evidence-message.error {
+  background: #ffffff;
+  border-color: #aaaaaa;
+}
+
+.officer-evidence-message.success {
+  background: #eeeeee;
+  border-color: #222222;
+}
+
+.officer-evidence-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 26px;
+}
+
+.officer-evidence-stats article {
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+}
+
+.officer-evidence-stats span {
+  display: block;
+  margin-bottom: 10px;
+  color: #777777;
+  font-size: 12px;
+}
+
+.officer-evidence-stats strong {
+  font-size: 28px;
+}
+
+.officer-evidence-loading,
+.officer-evidence-empty {
+  padding: 32px;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  color: #666666;
+}
+
+.officer-evidence-list {
+  display: grid;
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(330px, 1fr)
+    );
+  gap: 18px;
+}
+
+.officer-evidence-card {
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+}
+
+.officer-evidence-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.officer-evidence-id {
+  display: block;
+  margin-bottom: 7px;
+  color: #888888;
+  font-size: 11px;
+}
+
+.officer-evidence-card-header h2 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.officer-evidence-card-header p {
+  margin: 6px 0 0;
+  color: #777777;
+  font-size: 12px;
+}
+
+.officer-evidence-status {
+  align-self: flex-start;
+  padding: 7px 10px;
+  border: 1px solid #cccccc;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.status-approved {
+  background: #111111;
+  border-color: #111111;
+  color: #ffffff;
+}
+
+.status-pending {
+  background: #f3f3f3;
+}
+
+.status-rejected {
+  background: #ffffff;
+  border-color: #777777;
+}
+
+.officer-evidence-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.officer-evidence-info div {
+  padding: 11px;
+  background: #f5f5f5;
+}
+
+.officer-evidence-info span {
+  display: block;
+  margin-bottom: 5px;
+  color: #777777;
+  font-size: 11px;
+}
+
+.officer-evidence-info strong {
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.officer-evidence-file-actions {
+  margin-top: 14px;
+}
+
+.officer-evidence-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.officer-evidence-primary,
+.officer-evidence-secondary,
+.officer-evidence-danger {
+  padding: 11px 15px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.officer-evidence-primary {
+  background: #111111;
+  border: 1px solid #111111;
+  color: #ffffff;
+}
+
+.officer-evidence-secondary {
+  background: #ffffff;
+  border: 1px solid #bbbbbb;
+  color: #111111;
+}
+
+.officer-evidence-danger {
+  background: #ffffff;
+  border: 1px solid #111111;
+  color: #111111;
+}
+
+.officer-evidence-primary:disabled,
+.officer-evidence-secondary:disabled,
+.officer-evidence-danger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.officer-evidence-info-box,
+.officer-evidence-rejection,
+.officer-evidence-comment {
+  margin-top: 14px;
+  padding: 13px;
+  background: #f3f3f3;
+  border: 1px solid #dddddd;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.officer-evidence-rejection strong,
+.officer-evidence-comment strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.officer-evidence-rejection p,
+.officer-evidence-comment p {
+  margin: 0;
+}
+
+.officer-evidence-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.officer-evidence-modal {
+  width: 100%;
+  max-width: 520px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid #222222;
+  box-shadow:
+    0 24px 70px
+    rgba(0, 0, 0, 0.2);
+}
+
+.officer-evidence-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #dddddd;
+}
+
+.officer-evidence-modal-header p {
+  margin: 0 0 5px;
+  color: #777777;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+}
+
+.officer-evidence-modal-header h2 {
+  margin: 0;
+  font-size: 23px;
+}
+
+.officer-evidence-modal-header > button {
+  padding: 7px 10px;
+  background: transparent;
+  border: 1px solid #cccccc;
+  cursor: pointer;
+}
+
+.officer-evidence-modal-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 18px;
+  padding: 14px;
+  background: #f5f5f5;
+}
+
+.officer-evidence-modal-summary strong {
+  font-size: 15px;
+}
+
+.officer-evidence-modal-summary span {
+  color: #666666;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.officer-evidence-modal-notice {
+  margin-top: 14px;
+  padding: 13px;
+  border: 1px solid #dddddd;
+  background: #fafafa;
+  color: #555555;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.officer-evidence-modal form {
+  margin-top: 18px;
+}
+
+.officer-evidence-modal label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.officer-evidence-modal textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 12px;
+  resize: vertical;
+  border: 1px solid #cccccc;
+  background: #ffffff;
+  font: inherit;
+  outline: none;
+}
+
+.officer-evidence-modal textarea:focus {
+  border-color: #111111;
+}
+
+.officer-evidence-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+@media (max-width: 950px) {
+  .officer-evidence-stats {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 850px) {
+  .officer-evidence-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .officer-evidence-sidebar {
+    position: static;
+    min-height: auto;
+    height: auto;
+  }
+
+  .officer-evidence-main {
+    padding: 24px;
+  }
+
+  .officer-evidence-nav {
+    display: grid;
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .officer-evidence-main {
+    padding: 18px;
+  }
+
+  .officer-evidence-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .officer-evidence-card-header,
+  .officer-evidence-modal-header {
+    flex-direction: column;
+  }
+
+  .officer-evidence-info {
+    grid-template-columns: 1fr;
+  }
+
+  .officer-evidence-actions,
+  .officer-evidence-modal-actions {
+    flex-direction: column;
+  }
+
+  .officer-evidence-primary,
+  .officer-evidence-secondary,
+  .officer-evidence-danger {
+    width: 100%;
+  }
+}

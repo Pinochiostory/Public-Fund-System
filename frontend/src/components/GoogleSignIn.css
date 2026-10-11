@@ -1,0 +1,10 @@
+.google-sign-in { margin-top: 1.5rem; }
+.google-divider { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; opacity: .65; }
+.google-divider::before, .google-divider::after { content: ""; height: 1px; flex: 1; background: currentColor; opacity: .2; }
+.google-button-host { display: flex; justify-content: center; min-height: 44px; }
+.google-button-host.is-disabled { pointer-events: none; opacity: .55; }
+.google-sign-in > p { font-size: .9rem; text-align: center; }
+.google-link-modal { width: min(92vw, 480px); }
+.google-link-modal form { display: grid; gap: 1rem; }
+.google-link-modal p { line-height: 1.6; }
+

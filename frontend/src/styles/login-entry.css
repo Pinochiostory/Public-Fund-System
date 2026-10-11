@@ -1,0 +1,110 @@
+/* Shared account composition: Montaga, existing blue tokens, coordinated slide/fade.
+   DESIGN_VARIANCE: 3, MOTION_INTENSITY: 7, VISUAL_DENSITY: 5. */
+.login-entry { min-height:100dvh; padding:16px; background:var(--canvas); overflow-x:clip; }
+.login-entry-layout { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); max-width:1440px; min-height:calc(100dvh - 32px); margin:auto; background:var(--surface); border-radius:24px; padding:12px; gap:12px; }
+.login-entry-panel { display:grid; grid-template-rows:auto 1fr auto; min-width:0; padding:12px clamp(16px,3vw,48px); }
+.login-entry-header { display:flex; justify-content:center; min-height:44px; }
+.login-entry-header .public-brand { gap:11px; }
+.login-entry-header .public-brand img { border-radius:12px; }
+.login-entry-header .public-brand>span { font-size:22px; letter-spacing:-.5px; }
+.login-entry-header .public-brand small { font-size:12px; }
+.login-entry-main { display:flex; align-items:center; justify-content:center; min-width:0; padding:20px 0; }
+.auth-form-stage { width:100%; max-width:410px; }
+.login-entry :is(.login-content,.register-content,.recovery-content) { width:100%; max-width:none; }
+.login-entry h1 { text-align:center; font-size:32px; font-weight:400; letter-spacing:-.7px; margin:0 0 8px; line-height:1.15; }
+.login-entry :is(.login-description,.register-description,.recovery-description) { text-align:center; font-size:15px; line-height:1.4; margin:0 0 16px; }
+.login-entry .login-mode-nav { display:grid; grid-template-columns:1fr 1fr; gap:4px; padding:4px; background:var(--soft); border:1px solid var(--line); border-radius:12px; margin-bottom:16px; }
+.login-mode-nav a { display:flex; justify-content:center; align-items:center; min-height:38px; border-radius:9px; color:var(--muted); font-size:15px; transition:background .18s,color .18s; }
+.login-mode-nav a[aria-current="page"] { background:var(--surface); color:var(--ink); box-shadow:0 1px 4px #172b4310; }
+.login-mode-nav a:hover { color:var(--blue); }
+.login-entry :is(.login-form,.register-form) { gap:12px; }
+.login-entry .register-form-group { gap:5px; }
+.login-entry :is(.auth-field,.input-with-icon) { min-height:50px; border-color:var(--line); background:var(--surface); border-radius:12px; }
+.login-entry :is(.auth-field,.input-with-icon)>svg { left:16px; color:var(--muted); }
+.login-entry :is(.auth-field,.input-with-icon) input { min-height:50px; padding:10px 44px 10px 46px; font-size:16px; }
+.login-entry .login-form .auth-field { padding:8px 44px 8px 48px; min-height:66px; }
+.login-entry .login-field-content { min-width:0; width:100%; }
+.login-entry .login-field-content label { display:block; font-size:13px; color:var(--muted); line-height:1.4; cursor:text; }
+.login-entry .login-field-content input { width:100%; min-height:26px; line-height:1.4; padding:1px 0; border:0; border-radius:0; background:transparent; color:var(--ink); box-shadow:none; }
+.login-entry .password-toggle { top:5px; right:5px; width:40px; height:40px; min-height:40px; }
+.login-entry .login-form .password-toggle { top:12px; }
+.login-entry :is(.auth-field,.input-with-icon):focus-within { border-color:var(--blue); box-shadow:0 0 0 3px var(--accent-soft); }
+.login-entry .login-forgot { display:flex; justify-content:flex-end; }
+.login-entry .login-forgot a { font-size:14px; min-height:28px; display:flex; align-items:center; }
+.login-entry :is(.login-button,.register-button,.recovery-primary) { min-height:48px; margin:0; font-size:16px; border-radius:12px; }
+.login-entry :is(.login-error,.register-error,.recovery-alert) { font-size:14px; line-height:1.4; margin:0; }
+.login-entry .google-sign-in { margin-top:14px; }
+.login-entry .google-divider { margin-bottom:10px; color:var(--muted); font-size:13px; opacity:1; }
+.login-entry .google-divider::before,.login-entry .google-divider::after { background:var(--line); opacity:1; }
+.login-entry .google-button-host { min-height:44px; }
+.login-entry .google-sign-in>p { font-size:13px; line-height:1.4; }
+.login-entry .register-link { padding-top:12px; font-size:14px; }
+.login-entry .register-link a { margin:0; }
+.login-entry-footer { display:grid; justify-items:center; max-width:390px; margin-inline:auto; text-align:center; }
+.login-entry-footer p { display:none; }
+.login-entry-footer a { display:inline-flex; gap:7px; align-items:center; min-height:32px; font-size:14px; color:var(--muted); }
+.login-entry-footer a:hover { color:var(--blue); }
+.login-portrait { position:relative; min-width:0; border-radius:20px; overflow:hidden; background:#b48893; }
+.login-portrait img { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center; border-radius:20px; }
+.login-entry .auth-back { margin-bottom:12px; font-size:14px; }
+.login-entry .recovery-back { margin-top:14px; font-size:14px; min-height:32px; }
+.login-entry .recovery-icon { margin:0 auto 12px; }
+.login-entry .recovery-form { gap:8px; }
+.login-entry .password-help { font-size:12px; line-height:1.4; }
+.login-entry .password-rules { margin:4px 0; gap:4px 10px; }
+.login-entry .password-rules span { font-size:12px; }
+.login-entry .recovery-form>label:not(:first-child) { margin-top:4px; }
+.login-entry :is(a,button):focus-visible { outline:3px solid var(--blue); outline-offset:3px; }
+/* Outgoing motion lives in AuthLink. Incoming layers settle independently. */
+@media (prefers-reduced-motion:no-preference) {
+ .auth-form-stage { animation:auth-form-arrive .8s cubic-bezier(.16,1,.3,1) both; }
+ .login-portrait { animation:auth-art-arrive .95s cubic-bezier(.16,1,.3,1) both; }
+ [data-auth-page="register"] { --form-entry:100px; --art-entry:-140px; }
+ [data-auth-page="login"] { --form-entry:-100px; --art-entry:140px; }
+}
+@keyframes auth-form-arrive { from { opacity:0; transform:translateX(var(--form-entry,70px)) scale(.96); } to { opacity:1; transform:translateX(0) scale(1); } }
+@keyframes auth-art-arrive { from { opacity:0; transform:translateX(var(--art-entry,-100px)) scale(.94); } to { opacity:1; transform:translateX(0) scale(1); } }
+@media (max-height:800px) {
+ .login-entry { padding:10px; }
+ .login-entry-layout { min-height:calc(100dvh - 20px); padding:8px; gap:8px; }
+ .login-entry-panel { padding-block:4px; }
+ .login-entry-main { padding:12px 0; }
+ .login-entry h1 { font-size:28px; }
+ .login-entry[data-auth-page="register"] .login-entry-header { display:none; }
+ .login-entry[data-auth-page="register"] .login-entry-panel { grid-template-rows:1fr auto; }
+ .login-entry .register-form { gap:9px; }
+ .login-entry .register-description { margin-bottom:10px; }
+}
+@media (max-width:767px) {
+ .login-entry { padding:0; background:var(--surface); }
+ .login-entry-layout { display:block; min-height:100dvh; border-radius:0; padding:0; }
+ .login-entry-panel { min-height:100dvh; padding:16px 24px; }
+ .login-entry-main { padding:16px 0; }
+ .login-portrait { display:none; }
+}
+@media (max-width:374px) {
+ .login-entry-panel { padding:12px 16px; }
+ .login-entry h1 { font-size:27px; }
+}
+@media (prefers-reduced-motion:reduce) {
+ .login-entry *, .login-entry *::before,.login-entry *::after { transition:none!important; animation:none!important; }
+}
+/* Content stays reachable at extreme zoom/keyboard heights; never clip form errors. */
+.login-entry .register-form .auth-field { padding:6px 44px 6px 48px; min-height:60px; }
+.login-entry .register-form .login-field-content input { min-height:24px; padding:1px 0; }
+.login-entry .register-form .password-toggle { top:9px; }
+@media (max-height:700px) {
+ .login-entry .recovery-icon { display:none; }
+ .login-entry-main { padding-block:10px; }
+ .login-entry .register-form { gap:8px; }
+ .login-entry .register-form .auth-field { min-height:52px; padding-block:3px; }
+ .login-entry .login-mode-nav { margin-bottom:10px; }
+ .login-entry .google-sign-in { margin-top:10px; }
+}
+@media (max-height:700px) { .login-entry .register-form .password-toggle { top:6px; } }
+/* Keep the loading message inside the reserved Google-button space. */
+.login-entry .google-button-host + p[role="status"] { margin-top:-44px; min-height:44px; display:grid; align-items:center; }
+
+
+
+

@@ -1,0 +1,29 @@
+# Copy this file to local.properties in the same folder.
+# The real local.properties file is excluded from Git.
+# Environment variables may be used instead; Spring Boot does not read .env automatically.
+
+PUBLIC_FUND_DB_URL=jdbc:mysql://localhost:3306/public_fund_db
+PUBLIC_FUND_DB_USERNAME=root
+PUBLIC_FUND_DB_PASSWORD=replace-with-your-local-database-password
+
+# Generate a unique random value of at least 32 bytes. Do not use this placeholder.
+PUBLIC_FUND_JWT_SECRET=
+
+# Optional: creates the initial administrator only if that account does not exist.
+# Set all three together, then remove them after initial setup.
+# PUBLIC_FUND_ADMIN_NAME=
+# PUBLIC_FUND_ADMIN_EMAIL=
+# PUBLIC_FUND_ADMIN_PASSWORD=
+
+# Optional Google sign-in and email settings
+# PUBLIC_FUND_GOOGLE_CLIENT_ID=
+# PUBLIC_FUND_FRONTEND_URL=http://localhost:5173
+# PUBLIC_FUND_MAIL_HOST=
+# PUBLIC_FUND_MAIL_PORT=587
+# PUBLIC_FUND_MAIL_USERNAME=
+# PUBLIC_FUND_MAIL_PASSWORD=
+# PUBLIC_FUND_MAIL_FROM=
+# PUBLIC_FUND_MAIL_TLS=true
+
+# Optional official funder return instructions. Never use an Administrator's personal account.
+# PUBLIC_FUND_RETURN_DESTINATION=

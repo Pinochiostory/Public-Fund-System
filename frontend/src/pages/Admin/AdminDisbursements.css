@@ -1,0 +1,304 @@
+.admin-disbursements-layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  background: #f6f6f4;
+  color: #111111;
+}
+
+.admin-disbursements-sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 28px 20px;
+  background: #111111;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.admin-disbursements-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 8px;
+}
+
+.admin-disbursements-brand-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #111111;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.admin-disbursements-brand h2 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.admin-disbursements-brand p {
+  margin: 3px 0 0;
+  color: #888888;
+  font-size: 11px;
+}
+
+.admin-disbursements-nav {
+  margin-top: 46px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.admin-disbursements-nav button {
+  width: 100%;
+  height: 44px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #999999;
+  text-align: left;
+  cursor: pointer;
+}
+
+.admin-disbursements-nav button:hover {
+  background: #1c1c1c;
+  color: #ffffff;
+}
+
+.admin-disbursements-nav button.active {
+  background: #ffffff;
+  color: #111111;
+  font-weight: 600;
+}
+
+.admin-disbursements-user {
+  padding: 18px 8px 0;
+  border-top: 1px solid #292929;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.admin-disbursements-user div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-disbursements-user strong {
+  font-size: 12px;
+}
+
+.admin-disbursements-user span {
+  color: #888888;
+  font-size: 11px;
+}
+
+.admin-disbursements-user button {
+  height: 38px;
+  border: 1px solid #333333;
+  border-radius: 7px;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.admin-disbursements-main {
+  padding: 42px;
+}
+
+.admin-disbursements-header {
+  margin-bottom: 30px;
+}
+
+.admin-disbursements-header p {
+  margin: 0 0 10px;
+  color: #777777;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.admin-disbursements-header h1 {
+  margin: 0;
+  font-size: 38px;
+  letter-spacing: -0.04em;
+}
+
+.admin-disbursements-header span {
+  display: block;
+  margin-top: 8px;
+  color: #777777;
+  font-size: 14px;
+}
+
+.admin-disbursement-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.admin-disbursement-stats article {
+  padding: 22px;
+  border: 1px solid #e3e3df;
+  border-radius: 12px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.admin-disbursement-stats span {
+  color: #777777;
+  font-size: 12px;
+}
+
+.admin-disbursement-stats strong {
+  font-size: 24px;
+}
+
+.admin-disbursements-card {
+  padding: 24px;
+  border: 1px solid #e3e3df;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.admin-disbursements-table-wrapper {
+  overflow-x: auto;
+}
+
+.admin-disbursements-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-disbursements-table th {
+  padding: 12px 10px;
+  border-bottom: 1px solid #eeeeeb;
+  color: #888888;
+  font-size: 10px;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.admin-disbursements-table td {
+  padding: 16px 10px;
+  border-bottom: 1px solid #f0f0ed;
+  font-size: 12px;
+}
+
+.admin-disbursements-table td:nth-child(2) strong {
+  display: block;
+}
+
+.admin-disbursements-table td:nth-child(2) span {
+  display: block;
+  margin-top: 4px;
+  color: #999999;
+  font-size: 10px;
+}
+
+.admin-disbursement-status {
+  min-height: 24px;
+  padding: 0 9px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.status-pending {
+  background: #fff7df;
+  color: #886d1b;
+}
+
+.status-released {
+  background: #edf7ef;
+  color: #357145;
+}
+
+.admin-disbursements-table button {
+  min-height: 36px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 7px;
+  background: #111111;
+  color: #ffffff;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.admin-disbursements-table button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.released-label {
+  color: #357145;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.admin-disbursements-error,
+.admin-disbursements-success {
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.admin-disbursements-error {
+  border: 1px solid #e2b8b8;
+  background: #fff7f7;
+  color: #9c2424;
+}
+
+.admin-disbursements-success {
+  border: 1px solid #b6d8be;
+  background: #f5fff7;
+  color: #2d6a3d;
+}
+
+.admin-disbursements-loading,
+.admin-disbursements-empty {
+  padding: 40px 0;
+  color: #888888;
+  text-align: center;
+  font-size: 12px;
+}
+
+@media (max-width: 850px) {
+  .admin-disbursements-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-disbursements-sidebar {
+    position: static;
+    height: auto;
+  }
+
+  .admin-disbursements-user {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 650px) {
+  .admin-disbursements-main {
+    padding: 24px 18px;
+  }
+
+  .admin-disbursement-stats {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,624 @@
+* {
+  box-sizing: border-box;
+}
+
+.admin-project-layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  background: #f5f5f5;
+  color: #111111;
+}
+
+.admin-project-sidebar {
+  min-height: 100vh;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  padding: 28px 20px;
+  background: #0c0c0c;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.admin-project-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 42px;
+}
+
+.admin-project-brand-mark {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #444444;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+}
+
+.admin-project-brand h2 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.admin-project-brand p {
+  margin: 3px 0 0;
+  color: #8d8d8d;
+  font-size: 12px;
+}
+
+.admin-project-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.admin-project-nav button {
+  width: 100%;
+  border: 0;
+  padding: 12px 14px;
+  text-align: left;
+  background: transparent;
+  color: #aaaaaa;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.admin-project-nav button:hover,
+.admin-project-nav button.active {
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+.admin-project-user {
+  border-top: 1px solid #292929;
+  padding-top: 20px;
+}
+
+.admin-project-user div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+.admin-project-user strong {
+  font-size: 13px;
+}
+
+.admin-project-user span {
+  margin-top: 4px;
+  color: #8c8c8c;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.admin-project-user button {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid #333333;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.admin-project-main {
+  width: 100%;
+  max-width: 1500px;
+  padding: 42px;
+}
+
+.admin-project-header {
+  margin-bottom: 28px;
+}
+
+.admin-project-header p {
+  margin: 0 0 8px;
+  color: #777777;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+}
+
+.admin-project-header h1 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.admin-project-header span {
+  display: block;
+  margin-top: 10px;
+  max-width: 700px;
+  color: #666666;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.admin-project-message {
+  margin-bottom: 20px;
+  padding: 14px 16px;
+  border: 1px solid;
+  font-size: 14px;
+}
+
+.admin-project-message.error {
+  background: #ffffff;
+  border-color: #bbbbbb;
+}
+
+.admin-project-message.success {
+  background: #eeeeee;
+  border-color: #222222;
+}
+
+.admin-project-stats {
+  display: grid;
+  grid-template-columns:
+    repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.admin-project-stats article {
+  padding: 20px;
+  border: 1px solid #dddddd;
+  background: #ffffff;
+}
+
+.admin-project-stats span {
+  display: block;
+  margin-bottom: 10px;
+  color: #777777;
+  font-size: 12px;
+}
+
+.admin-project-stats strong {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.admin-project-loading,
+.admin-project-empty {
+  padding: 40px;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+}
+
+.admin-project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.admin-project-card {
+  padding: 26px;
+  border: 1px solid #dddddd;
+  background: #ffffff;
+}
+
+.admin-project-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.admin-project-id {
+  display: block;
+  margin-bottom: 8px;
+  color: #888888;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+.admin-project-card-header h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.admin-project-card-header p {
+  max-width: 720px;
+  margin: 10px 0 0;
+  color: #666666;
+  line-height: 1.6;
+}
+
+.admin-project-status,
+.admin-project-phase-status {
+  align-self: flex-start;
+  padding: 7px 10px;
+  border: 1px solid #cccccc;
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.status-active,
+.phase-approved,
+.phase-funded,
+.phase-in-progress {
+  background: #111111;
+  color: #ffffff;
+  border-color: #111111;
+}
+
+.status-pending-completion,
+.phase-pending-approval {
+  background: #f2f2f2;
+}
+
+.status-completed,
+.phase-completed,
+.phase-evidence-approved {
+  background: #e4e4e4;
+}
+
+.phase-rejected {
+  text-decoration: line-through;
+}
+
+.admin-project-details {
+  display: grid;
+  grid-template-columns:
+    repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.admin-project-details div {
+  padding: 16px;
+  border: 1px solid #e5e5e5;
+}
+
+.admin-project-details span {
+  display: block;
+  margin-bottom: 6px;
+  color: #777777;
+  font-size: 12px;
+}
+
+.admin-project-details strong {
+  font-size: 15px;
+}
+
+.admin-project-completion {
+  margin-top: 20px;
+  padding: 16px;
+  border: 1px solid #cfcfcf;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.admin-project-completion strong {
+  font-size: 14px;
+}
+
+.admin-project-completion p {
+  margin: 5px 0 0;
+  color: #666666;
+  font-size: 13px;
+}
+
+.admin-project-completed {
+  margin-top: 20px;
+  padding: 14px;
+  background: #ededed;
+  border: 1px solid #d0d0d0;
+  font-size: 13px;
+}
+
+.admin-project-phase-section {
+  margin-top: 30px;
+}
+
+.admin-project-section-heading h3 {
+  margin: 0;
+}
+
+.admin-project-section-heading p {
+  margin: 6px 0 16px;
+  color: #777777;
+  font-size: 13px;
+}
+
+.admin-project-phase-empty {
+  padding: 24px;
+  border: 1px dashed #cccccc;
+  color: #777777;
+}
+
+.admin-project-phase-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(290px, 1fr)
+    );
+  gap: 16px;
+}
+
+.admin-project-phase-card {
+  padding: 18px;
+  border: 1px solid #dddddd;
+}
+
+.admin-project-phase-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.admin-project-phase-top > span:first-child {
+  color: #777777;
+  font-size: 12px;
+}
+
+.admin-project-phase-card h4 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.admin-project-phase-card > p {
+  min-height: 48px;
+  color: #666666;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.admin-project-phase-info {
+  display: grid;
+  grid-template-columns:
+    1fr 1fr;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.admin-project-phase-info div {
+  padding: 12px;
+  background: #f6f6f6;
+}
+
+.admin-project-phase-info span {
+  display: block;
+  margin-bottom: 5px;
+  color: #777777;
+  font-size: 11px;
+}
+
+.admin-project-phase-info strong {
+  font-size: 13px;
+}
+
+.admin-project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.admin-project-primary,
+.admin-project-secondary,
+.admin-project-danger {
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.admin-project-primary {
+  border: 1px solid #111111;
+  background: #111111;
+  color: #ffffff;
+}
+
+.admin-project-secondary {
+  border: 1px solid #bbbbbb;
+  background: #ffffff;
+  color: #111111;
+}
+
+.admin-project-danger {
+  border: 1px solid #111111;
+  background: #ffffff;
+  color: #111111;
+}
+
+.admin-project-primary:disabled,
+.admin-project-secondary:disabled,
+.admin-project-danger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.admin-project-rejection {
+  margin: 15px 0;
+  padding: 12px;
+  border-left: 3px solid #111111;
+  background: #f3f3f3;
+}
+
+.admin-project-rejection strong {
+  font-size: 12px;
+}
+
+.admin-project-rejection p {
+  margin: 7px 0 0;
+  font-size: 13px;
+}
+
+.admin-project-info-box {
+  margin: 14px 0;
+  padding: 12px;
+  background: #f3f3f3;
+  border: 1px solid #e0e0e0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.admin-project-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.65
+  );
+}
+
+.admin-project-modal {
+  width: min(
+    560px,
+    100%
+  );
+  background: #ffffff;
+  padding: 26px;
+}
+
+.admin-project-modal-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.admin-project-modal-header p {
+  margin: 0 0 6px;
+  color: #777777;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+}
+
+.admin-project-modal-header h2 {
+  margin: 0;
+}
+
+.admin-project-modal-header button {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.admin-project-modal-phase {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 13px;
+  margin-bottom: 18px;
+  background: #f4f4f4;
+}
+
+.admin-project-modal-phase span {
+  color: #777777;
+  font-size: 12px;
+}
+
+.admin-project-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.admin-project-modal label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.admin-project-modal textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  resize: vertical;
+  font: inherit;
+}
+
+.admin-project-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+@media (
+  max-width: 1000px
+) {
+  .admin-project-stats {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .admin-project-details {
+    grid-template-columns:
+      1fr;
+  }
+}
+
+@media (
+  max-width: 850px
+) {
+  .admin-project-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-project-sidebar {
+    position: static;
+    height: auto;
+    min-height: auto;
+  }
+
+  .admin-project-nav {
+    display: grid;
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .admin-project-main {
+    padding: 24px;
+  }
+}
+
+@media (
+  max-width: 600px
+) {
+  .admin-project-main {
+    padding: 18px;
+  }
+
+  .admin-project-stats {
+    grid-template-columns:
+      1fr;
+  }
+
+  .admin-project-card {
+    padding: 18px;
+  }
+
+  .admin-project-card-header,
+  .admin-project-completion {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-project-phase-info {
+    grid-template-columns:
+      1fr;
+  }
+
+  .admin-project-nav {
+    grid-template-columns:
+      1fr;
+  }
+}

@@ -1,0 +1,39 @@
+# Dependencies and generated builds
+**/node_modules/
+**/target/
+**/dist/
+**/dist-ssr/
+**/build/
+
+# Machine-local credentials and environment files
+.env
+.env.*
+**/.env
+**/.env.*
+!**/.env.example
+backend/config/local.properties
+**/.local/
+*.pem
+*.key
+*.p12
+*.pfx
+
+# User documents, database backups, logs, and diagnostic output
+**/uploads/
+**/backups/
+**/logs/
+*.log
+backend/boot-error.txt
+backend/cp.txt
+frontend/artifacts/
+**/test-results/
+**/playwright-report/
+**/coverage/
+tmp/
+output/
+
+# Editor and operating-system files
+.idea/
+.vscode/
+**/.DS_Store
+**/Thumbs.db

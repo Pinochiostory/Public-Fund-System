@@ -1,0 +1,34 @@
+/* Semantic tokens, shared by every dashboard. No blanket recoloring of spans. */
+.workspace[data-theme="dark"],.public-surface[data-theme="dark"]{
+  --ink:#e4eaf4;--muted:#adb9cc;--blue:#91b8ff;--line:#344157;
+  --canvas:#121b28;--surface:#1b2636;--soft:#253349;--accent-soft:#273e63;
+  --success:#a7e2c5;--success-bg:#203d34;--danger:#ffb8c4;--danger-bg:#432a34;
+  --warning:#efd397;--warning-bg:#403724;color-scheme:dark;color:var(--ink);background:var(--canvas);
+}
+.workspace .theme-toggle{width:100%;display:flex;align-items:center;gap:10px;min-height:44px;padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:var(--canvas);color:var(--muted);font-size:13px;font-weight:600;text-align:left}
+.theme-toggle>span:first-of-type{flex:1}.theme-switch{display:block;width:34px;height:20px;border-radius:20px;background:#a7b4c9;padding:3px}.theme-switch>span{display:block;width:14px;height:14px;border-radius:50%;background:#fff;transition:transform .2s}.theme-toggle[aria-checked="true"] .theme-switch{background:#427de7}.theme-toggle[aria-checked="true"] .theme-switch>span{transform:translateX(14px)}
+.workspace[data-theme="dark"] :is(.new-application-button,.approve-button,.project-button,button[type="submit"],[class$="-primary"],.evidence-approve,.project-action),.public-surface[data-theme="dark"] :is(.login-button,.register-button,.recovery-primary,.guide-intro a){background:#3264c8!important;color:#fff!important}
+.workspace[data-theme="dark"] .project-action.secondary{background:var(--soft)!important;color:var(--blue)!important}
+.workspace[data-theme="dark"] :is(.workspace-brand img),.public-surface[data-theme="dark"] :is(.auth-brand-logo,.recovery-brand img,.guide>header img){background:#f6f7fa;border-radius:10px}
+.public-surface[data-theme="dark"] .auth-logo-visual>img{mix-blend-mode:normal;border-radius:22px}
+.workspace :is([class$="-stats"]>div,[class$="-stats"]>article){background:var(--surface)!important;border-color:var(--line)!important;color:var(--ink)!important}
+.workspace :is([class$="-stats"]>div) strong{color:var(--ink)!important}.workspace :is([class$="-stats"]>div) span{color:var(--muted)!important}
+.workspace :is([class$="-modal"] label,[class$="-details"] strong,[class$="-budget"] strong,dd){color:var(--ink)!important}
+.workspace :is([class$="-details"],[class$="-info"],[class$="-budget"],.application-context){background:var(--canvas)!important;border-color:var(--line)!important;color:var(--muted)!important}
+.workspace :is([class$="-details"] span,[class$="-info"] span,[class$="-budget"] span,.application-context p,.application-context small){color:var(--muted)!important}
+.workspace .application-context h2,.workspace .application-context strong{color:var(--ink)!important}
+.workspace :is([class$="-error"],.project-error,.error){background:var(--danger-bg)!important;color:var(--danger)!important;border-color:var(--danger)!important}
+.workspace :is([class$="-success"],.upload-confirmation,.success){background:var(--success-bg)!important;color:var(--success)!important;border-color:var(--success)!important}
+.workspace .provider-notification-item{background:var(--surface);border-color:var(--line);border-radius:16px!important}.workspace .provider-notification-item.unread{background:var(--accent-soft);border-left:3px solid var(--blue)}.workspace .provider-notification-item p,.workspace .provider-notification-date{color:var(--muted)}
+.workspace .provider-unread-indicator{background:var(--soft);color:var(--blue)}
+.workspace main p,.workspace main small{color:var(--muted)}
+.workspace :is([class$="-details"]>div,[class$="-info"]>div,[class$="-budget"]>div){background:var(--canvas);border:0;border-radius:12px;color:var(--ink)}
+.workspace :is([class$="-stats"],[class$="-details"],[class$="-info"]){border-radius:16px}
+.workspace :is([class$="-stats"]) strong{color:var(--ink)}.workspace :is([class$="-stats"]) span{color:var(--muted)}
+.workspace :is([class*="card-header"] p,[class$="-comment"],.phase-card p,.notification-item p){color:var(--muted)!important}
+.workspace :is([class$="-comment"],[class$="-completion"],[class$="-modal-phase"]){background:var(--soft);border-color:var(--line);border-radius:12px}
+.workspace :is([class*="card-header"],[class$="-phase-section"],[class$="-phase-budget"]){border-color:var(--line)}
+.workspace :is([class$="-completed"],[class$="-phase-empty"],[class$="-pending-box"]){border-radius:14px;background:var(--soft);border-color:var(--line);color:var(--muted)}
+.workspace[data-theme="dark"] .project-directory-card .project-action{background:var(--canvas)!important;color:var(--blue)!important}
+.workspace .notification-count{background:#2859b8;color:#fff}
+@media(prefers-reduced-motion:reduce){.theme-switch>span{transition:none}}

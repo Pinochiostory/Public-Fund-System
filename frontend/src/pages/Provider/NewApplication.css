@@ -1,0 +1,200 @@
+.new-application-page {
+  min-height: 100vh;
+  padding: 50px 24px;
+  background: #f6f6f4;
+  color: #111111;
+}
+
+.application-form-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.application-top {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+}
+
+.application-eyebrow {
+  margin: 0 0 10px;
+  color: #777777;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.application-top h1 {
+  margin: 0;
+  font-size: 38px;
+  letter-spacing: -0.04em;
+}
+
+.application-top span {
+  display: block;
+  margin-top: 10px;
+  color: #777777;
+  font-size: 14px;
+}
+
+.back-button {
+  height: 42px;
+  padding: 0 18px;
+  border: 1px solid #d8d8d4;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #111111;
+  cursor: pointer;
+}
+
+.application-form {
+  padding: 32px;
+  border: 1px solid #e3e3df;
+  border-radius: 14px;
+  background: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.application-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.application-field label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.application-field input,
+.application-field textarea {
+  width: 100%;
+  border: 1px solid #d8d8d4;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #111111;
+  outline: none;
+  font: inherit;
+}
+
+.application-field input {
+  height: 50px;
+  padding: 0 14px;
+}
+
+.application-field textarea {
+  resize: vertical;
+  min-height: 150px;
+  padding: 14px;
+  line-height: 1.6;
+}
+
+.application-field input:focus,
+.application-field textarea:focus {
+  border-color: #111111;
+}
+
+.application-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.money-input {
+  position: relative;
+}
+
+.money-input span {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  color: #777777;
+  font-size: 13px;
+}
+
+.money-input input {
+  padding-left: 34px;
+}
+
+.application-error,
+.application-success {
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 13px;
+}
+
+.application-error {
+  border: 1px solid #e2b8b8;
+  background: #fff7f7;
+  color: #9c2424;
+}
+
+.application-success {
+  border: 1px solid #b6d8be;
+  background: #f5fff7;
+  color: #2d6a3d;
+}
+
+.application-actions {
+  padding-top: 8px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.cancel-button,
+.submit-application-button {
+  height: 46px;
+  padding: 0 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancel-button {
+  border: 1px solid #d8d8d4;
+  background: #ffffff;
+  color: #111111;
+}
+
+.submit-application-button {
+  border: 0;
+  background: #111111;
+  color: #ffffff;
+}
+
+.submit-application-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 700px) {
+  .application-top {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .application-row {
+    grid-template-columns: 1fr;
+  }
+
+  .application-form {
+    padding: 22px;
+  }
+
+  .application-actions {
+    flex-direction: column-reverse;
+  }
+
+  .cancel-button,
+  .submit-application-button {
+    width: 100%;
+  }
+}
