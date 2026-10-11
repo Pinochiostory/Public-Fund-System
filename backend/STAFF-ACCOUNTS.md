@@ -1,6 +1,6 @@
 # Database-backed staff accounts
 
-The existing `users` table, `User` entity, `UserRepository`, BCrypt bean and JWT login are reused. No schema migration is required. No real accounts or passwords were added as part of the code change.
+Staff accounts are stored in the `users` table. Passwords are BCrypt-hashed, and all roles use the same login endpoint.
 
 ## First administrator
 
@@ -45,7 +45,7 @@ The new endpoint is `POST /api/auth/staff`, restricted by Spring Security to an 
 
 ## Role compatibility
 
-New staff rows use `ADMIN` and `GOVERNMENT_OFFICER` as requested. Existing frontend/API login and security role names stay `ADMINISTRATOR` and `VERIFICATION_OFFICER`, mapped at the authentication boundary. Existing database rows with those older role labels still work. No existing users are deleted, promoted, or rewritten. `/api/auth/admin-login` remains available as a database-backed compatibility endpoint, while the frontend uses `/api/auth/login` once for all roles. Audit entries now record actual database user IDs for admins.
+Staff records use `ADMIN` and `GOVERNMENT_OFFICER`. These map to the `ADMINISTRATOR` and `VERIFICATION_OFFICER` authorities used by the frontend and Spring Security. Older role labels are also supported. The frontend uses `/api/auth/login` for all roles; `/api/auth/admin-login` remains available for compatibility. Audit entries include the Administrator's database user ID.
 
 ## Existing security limitations (not a production deployment)
 
@@ -62,5 +62,3 @@ Focused tests do not write to MySQL:
 ```
 
 These cover role restrictions, admin-only access, BCrypt, bootstrap idempotence, email collisions, login compatibility, lockouts, invalidated synthetic staff tokens, password-safe responses and provider password-reset compatibility.
-
-Verified locally: 45 focused backend tests passed, plus the full Spring application context test against MySQL with `ddl-auto=validate` and bootstrap explicitly disabled. The frontend production build, route smoke checks, layout checks and mocked browser tests for staff creation passed. Existing frontend lint warnings remain; no new lint errors were introduced.

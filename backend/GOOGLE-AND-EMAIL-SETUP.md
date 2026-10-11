@@ -1,6 +1,6 @@
 # Google sign-in and email setup
 
-The existing users table, BCrypt passwords, JWT login, roles and dashboards are retained. Google sign-in is an additional Service Provider sign-in method, not a replacement login system.
+Service Providers can sign in with Google or email and password. Both methods use the same account and permissions.
 
 ## Private configuration
 
@@ -67,11 +67,9 @@ Google's consent project remains in Testing; public rollout is not completed. Fi
 
 ## Database
 
-`database/migrations/003_google_sign_in.sql` adds only nullable unique `users.google_subject`. It was applied locally after a private backup at `database/backups/before-google-20261007.sql`; all 9 existing users were preserved. Do not blindly rerun it. Backups contain sensitive data and must remain private. No existing user password was changed by the migration.
+`database/migrations/003_google_sign_in.sql` adds the nullable, unique `users.google_subject` column. Back up the database and check whether the column exists before applying the migration.
 
-## Verification and limitations
-
-Local verification on 7 October 2026: 106 distinct backend tests passed across the regression/security and MySQL/schema runs. The frontend production build, all 26 route smoke tests, layout checks, Google/recovery browser tests, workflow browser tests and user-management browser tests passed. Lint still reports existing warnings outside the new Google component. The private-start script passes PowerShell syntax validation. The temporary backend verification process was stopped to free port 8080 for private mail setup; the frontend remains on port 5173.
+## Testing
 
 Automated tests cover Google linking, staff/disabled/unverified account restrictions, nonce replay, CORS, reset-token hashing, expiry, single use, mail failures, and existing workflows. Frontend Google/recovery browser tests use mocked Google/API responses, not real accounts. Run `frontend/scripts/google-recovery-test.mjs` with Playwright available and the local frontend running.
 

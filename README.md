@@ -88,13 +88,3 @@ From `backend`, with private database configuration available:
 ```
 
 The normal context test connects to the configured development database. Destructive workflow integration tests are opt-in and use a separate `public_fund_workflow_test` database. Read [workflow safety notes](backend/WORKFLOW-SAFETY.md) before enabling them. Never point test configuration at a production database.
-
-## What is deliberately not in this repository
-
-Passwords and signing keys, local integration configuration, uploaded evidence and payment documents, database backups, logs, dependency folders, and generated builds.
-
-## GitHub is not live hosting
-
-Uploading this repository does not deploy the application. A live deployment also requires backend hosting, MySQL, persistent private file storage, HTTPS, the correct frontend API URL, allowed frontend origins, and deployment-specific Google/email settings.
-
-Before public deployment, review security and dependencies, replace development settings, configure database migrations and backups, and use new production secrets. The Spring Boot version in this project is currently a snapshot, not a pinned stable release.

@@ -1,8 +1,8 @@
 # Workflow safety and transparency
 
-This is an extension of the existing application, not a replacement. Existing user roles, login/JWT/BCrypt, funding applications, projects, phases, evidence, payments, notifications and audit tables are reused.
+Workflow rules cover applications, project phases, evidence review, payments, notifications and audit records.
 
-## Workflow preserved
+## Workflow
 
 Application approval → project → phase proposal → phase approval → payment recorded → provider starts work → evidence review → Administrator concludes phase. Later phases require the previous phase to be completed. Evidence is reviewed by the existing Government Officer role or an Administrator.
 
@@ -31,7 +31,7 @@ Password recovery now sends an email-only, single-use link valid for 30 minutes.
 
 Migration: database/migrations/002_workflow_transparency.sql.
 
-Applied locally after a backup at database/backups/before-workflow-20261006.sql. The backup is ignored by Git and contains sensitive database data; keep it private. All 9 existing users were preserved. Do not rerun this migration blindly: MySQL DDL commits automatically.
+Back up the database and check the current schema before applying the migration. MySQL DDL commits automatically.
 
 The migration adds verification state, rejection metadata, optional deadlines, version columns, proof metadata, audit links, and a unique payment-per-phase constraint. No existing business tables were replaced. Historic missing dates/reasons/references/sizes are shown as not recorded, not fabricated. Historic audit rows remain available in the Admin audit trail; new linked events appear in each project's timeline.
 
@@ -56,11 +56,7 @@ This is type/size validation, not malware scanning. Treat downloaded documents a
 
 ## Tests and operation
 
-Local verification on 6 October 2026: 81 backend tests passed across the regression, file-safety, MySQL workflow and schema-validation runs. The frontend production build, 26-route smoke test, layout/project-flow checks, workflow browser tests and user-management browser tests passed. Browser suites use mocked APIs; the workflow integration suite separately exercises real MySQL and Spring Security. Real inbox delivery has not been tested.
-
-Both development services were started and checked: frontend http://127.0.0.1:5173 and backend http://127.0.0.1:8080. Anonymous access to the Admin users endpoint returns 401, and the frontend origin passes CORS preflight. The backend was started with schema validation and initial-account seeding disabled for this verification.
-
-Existing frontend/backend regression suites remain in place. New tests:
+Test suites:
 
 - WorkflowSafetyIntegrationTests: real Spring Security, APIs, BCrypt and MySQL, including competing payments, duplicate submissions, cross-provider access, OTP mistakes/expiry, evidence correction, payment proof and notification delivery failure.
 - FileStorageSafetyTests: disguised/invalid files, size limits, storage failures, rollback cleanup and path restrictions.

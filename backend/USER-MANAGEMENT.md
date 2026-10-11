@@ -1,6 +1,6 @@
 # User Management
 
-Open **Admin → User Management** (`/admin/users`). This uses the existing workspace, table, filters, dialogs, loading components, colours and login system. The existing Staff accounts creation page remains available, with a shortcut from User Management.
+Open **Admin → User Management** (`/admin/users`). To create staff accounts, use the **Staff accounts** shortcut.
 
 ## Account actions
 
@@ -12,7 +12,7 @@ Open **Admin → User Management** (`/admin/users`). This uses the existing work
 - Resetting a disabled account does not re-enable it. A password-lockout (`LOCKED`) can be recovered through an Admin reset. Enabling a non-admin clears the failed-login counter but retains any required password change.
 - The next login with a temporary password opens `/change-password`. The user must enter their temporary password and choose a different password satisfying the existing policy. Only then can they open a normal dashboard.
 
-No user creation date is shown because the existing `users` table has no creation-date column. No fabricated date or extra date field was added.
+Creation dates are not displayed because the `users` table does not store them.
 
 ## Schema and deployment
 
@@ -50,7 +50,3 @@ The existing audit trail records `ADMIN_DISABLED_USER`, `ADMIN_ENABLED_USER`, `A
 `UserManagementFlowTests` exercises real Spring Security, JWTs, BCrypt, controllers and services with mocked persistence. It covers all account roles, disabling/re-enabling, self-protection, direct unauthorized API calls, temporary-password login, forced changes, BCrypt persistence, old-token invalidation, public-reset bypass prevention and password-free audit records. Existing authentication/evidence tests remain in the suite.
 
 Frontend checks: `npm run build`, `npm run lint`, `npm run test:smoke`, `npm run test:layout`, and `scripts/user-management-test.mjs` (Playwright/Edge; `PLAYWRIGHT_MODULE` may point to the installed runtime, `VISUAL_BASE_URL` defaults to `http://127.0.0.1:5186`). Browser tests use a mocked API and do not change real accounts. They cover searching/filtering, confirmations, errors, all reset targets, one-time display, role guards, the mandatory-change flow for all roles, and light/dark mobile/desktop layouts.
-
-## Existing deployment limitations
-
-This is not an authentication replacement or production-hardening project. The existing hardcoded JWT signing key and development provider password-reset token delivery remain production risks. Secure those and use HTTPS before exposing the system publicly. Bootstrap credentials and user management continue to reuse the existing account architecture.
